@@ -25,7 +25,7 @@ const UserLogin = () => {
       document.getElementById('login-form').reset();
       // console.log('data: ', actualData);
       setError({status:true, msg:'Login Success', type:'success'})
-      navigate('/')
+      navigate('/dashboard')
 
     }else{
       // console.log('All fields are required !')

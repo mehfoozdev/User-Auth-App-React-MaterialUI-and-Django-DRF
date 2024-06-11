@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Grid, TextField, Button, Box, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const ResetPassword = () => {
+const ChangePassword = () => {
     const [error, setError] = useState({
         status: false,
         msg : '',
@@ -50,7 +50,7 @@ const ResetPassword = () => {
                 <TextField margin='normal' required fullWidth id='password2' name='password2' label='New Confirm Password' type='password' />
             
                 <Box textAlign='center'>
-                    <Button type='submit' variant='contained' sx={{mt:3, mb:2, px:5}}>Send</Button>
+                    <Button type='submit' variant='contained' sx={{mt:3, mb:2, px:5}}>Update</Button>
                 </Box>
                 
                 {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ''}
@@ -62,4 +62,4 @@ const ResetPassword = () => {
       </>
 }
 
-export default ResetPassword
+export default ChangePassword

@@ -6,6 +6,7 @@ import { Contact } from './components/pages/Contact';
 import LoginReg from './components/pages/auth/LoginReg';
 import SendPassResetEmail from './components/pages/auth/SendPassResetEmail';
 import ResetPassword from './components/pages/auth/ResetPassword';
+import Dashboard from './components/pages/Dashboard';
 
 
 
@@ -21,6 +22,8 @@ function App() {
                   <Route path='send-password-reset-email' element={<SendPassResetEmail />} />
                   <Route path='reset-password' element={<ResetPassword />} />
                 </Route>
+                <Route path='/dashboard' element={<Dashboard/>} />
+                <Route path="*" element={<h1> Error 404 Page not found ! </h1>} />
             </Routes>
         </BrowserRouter>
 
