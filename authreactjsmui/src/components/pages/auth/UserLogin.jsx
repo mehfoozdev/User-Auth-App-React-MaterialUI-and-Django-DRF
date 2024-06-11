@@ -1,4 +1,4 @@
-import React, { act, useState } from 'react'
+import React, { useState } from 'react'
 import { TextField, Button, Box, Alert } from '@mui/material'
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -48,7 +48,7 @@ const UserLogin = () => {
         <Button type='submit' variant='contained' sx={{mt:3, mb:2, px:5}}>Sign In</Button>
       </Box>
 
-      <NavLink to='/'>Forgot Password ? </NavLink>
+      <NavLink to='/send-password-reset-email' >Forgot Password ? </NavLink>
 
       {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ''}
 
