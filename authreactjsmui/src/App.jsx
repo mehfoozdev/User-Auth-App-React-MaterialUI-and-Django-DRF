@@ -1,12 +1,12 @@
 import React from 'react'
-import Layout from './components/pages/Layout';
+import Layout from './pages/Layout';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { Home } from './components/pages/Home';
-import { Contact } from './components/pages/Contact';
-import LoginReg from './components/pages/auth/LoginReg';
-import SendPassResetEmail from './components/pages/auth/SendPassResetEmail';
-import ResetPassword from './components/pages/auth/ResetPassword';
-import Dashboard from './components/pages/Dashboard';
+import { Home } from './pages/Home';
+import { Contact } from './pages/Contact';
+import LoginReg from './pages/auth/LoginReg';
+import SendPassResetEmail from './pages/auth/SendPassResetEmail';
+import ResetPassword from './pages/auth/ResetPassword';
+import Dashboard from './pages/Dashboard';
 
 
 

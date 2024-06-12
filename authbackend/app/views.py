@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from app.renderers import UserRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
+from app.models import User
 
 # Generate Token Manually
 def get_tokens_for_user(user):
@@ -23,6 +24,13 @@ class UserRegistrationView(APIView):
         user = serializer.save()
         token = get_tokens_for_user(user)
         return Response({'token':token, 'msg':'Registration Successful'}, status=status.HTTP_201_CREATED)
+    
+    def get(self, request, format=None):
+        users = User.objects.all()
+        serializer = UserRegistrationSerializer(users, many=True)
+        print(serializer)
+        return Response({'response':'success', 'msg':'All Registered User', 'data': serializer.data}, status=status.HTTP_201_CREATED)
+
 
 class UserLoginView(APIView):
     renderer_classes = [UserRenderer]
