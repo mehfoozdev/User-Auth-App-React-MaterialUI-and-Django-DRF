@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Grid, Card, Typography, Tabs, Tab, Box, Divider} from '@mui/material';
+import {Grid, Card, Tabs, Tab, Box} from '@mui/material';
 import Pic1 from '../../images/shopping1.png'
 import UserLogin from './UserLogin';
 import UserRegistration from './UserRegistration';
