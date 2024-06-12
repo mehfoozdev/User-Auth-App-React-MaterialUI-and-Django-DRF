@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextField, Button, Box, Alert, Typography, CircularProgress } from '@mui/material'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useLoginUserMutation } from '../../services/userAuthApi'
-import { storeToken } from '../../services/LocalStorageService';
+import { getToken, storeToken } from '../../services/LocalStorageService';
+import { useDispatch } from 'react-redux';
+import { setUserToken } from '../../features/authSlice';
 
 
 const UserLogin = () => {
   const navigate = useNavigate();
-  const [server_error, setServerError] = useState({})
-  const [loginUser, { isLoading }] = useLoginUserMutation()
+  const [server_error, setServerError] = useState({});
+  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const dispatch = useDispatch();
+
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -25,10 +29,16 @@ const UserLogin = () => {
 
     if(res.data){
       storeToken(res.data.token)
+      let { access_token } = getToken()
+      dispatch(setUserToken({access_token:access_token}))
       navigate('/dashboard')
     }
-    
   }
+
+  let { access_token } = getToken()
+  useEffect(() => {
+    dispatch(setUserToken({access_token:access_token}))
+  }, [access_token, dispatch] )
 
   return <>
 
